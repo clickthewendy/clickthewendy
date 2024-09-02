@@ -21,11 +21,26 @@
             align-items: center;
             margin-top: 20px;
         }
+        .name-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+        }
         #nameInput {
             padding: 5px;
             font-size: 16px;
-            margin-bottom: 10px;
             width: 200px;
+        }
+        #selectButton {
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
         }
         #wendyImage {
             width: 200px;
@@ -39,7 +54,7 @@
         table {
             margin: 10px auto;
             border-collapse: collapse;
-            width: 30%; /* Adjusted width to make the table slightly smaller */
+            width: 30%; 
             background-color: #fff;
             border: 1px solid #ddd;
         }
@@ -57,7 +72,10 @@
 <body>
     <h1>Click the Wendy!</h1>
     <div class="container">
-        <input type="text" id="nameInput" placeholder="Enter your name">
+        <div class="name-container">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="selectButton">Select</button>
+        </div>
         <img id="wendyImage" src="Screenshot_20240901_190056_Instagram.jpg" alt="Wendy">
         <p id="clickCounter">Click count: 0</p>
         <table id="leaderboardTable">
