@@ -1,20 +1,21 @@
 const wendyImage = document.getElementById('wendyImage');
 const clickCounter = document.getElementById('clickCounter');
 const nameInput = document.getElementById('nameInput');
+const selectButton = document.getElementById('selectButton');
 const leaderboardTable = document.getElementById('leaderboardTable');
 
 let clickCount = parseInt(localStorage.getItem('clickCount')) || 0;
 let leaderboard = JSON.parse(localStorage.getItem('leaderboard')) || [];
-let audio = new Audio('gn.mp3'); // Create an Audio object
+let audio = new Audio('gn.mp3'); 
 
 clickCounter.textContent = `Click count: ${clickCount}`;
 
 function playSound() {
     if (!audio.paused) {
         audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
+        audio.currentTime = 0;
     }
-    audio.play(); // Play the sound
+    audio.play(); 
 }
 
 function handleClick() {
@@ -34,7 +35,7 @@ function handleClick() {
 
 function updateLeaderboard() {
     const name = nameInput.value.trim();
-    if (name.length > 0 && name.length <= 16) { // Ensure a valid name is provided
+    if (name.length > 0 && name.length <= 16) { 
         const index = leaderboard.findIndex(entry => entry.name === name);
         if (index !== -1) {
             leaderboard[index].clicks = clickCount;
@@ -46,13 +47,10 @@ function updateLeaderboard() {
         leaderboard = leaderboard.slice(0, 10);
 
         localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
-    } else {
-        // Remove any leaderboard entry with a blank name or invalid length
-        leaderboard = leaderboard.filter(entry => entry.name.length > 0 && entry.name.length <= 16);
-
-        localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
     }
-    updateLeaderboardTable(); // Always update the leaderboard table
+    leaderboard = leaderboard.filter(entry => entry.name.length > 0 && entry.name.length <= 16);
+    localStorage.setItem('leaderboard', JSON.stringify(leaderboard));
+    updateLeaderboardTable(); 
 }
 
 function updateLeaderboardTable() {
@@ -70,5 +68,5 @@ function updateLeaderboardTable() {
 }
 
 wendyImage.addEventListener('click', handleClick);
-
+selectButton.addEventListener('click', updateLeaderboard);
 updateLeaderboardTable();
