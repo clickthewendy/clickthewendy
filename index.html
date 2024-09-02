@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click the Wendy!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            margin-top: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .name-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        #nameInput {
+            padding: 5px;
+            font-size: 16px;
+            width: 200px;
+        }
+        #selectButton {
+            padding: 5px 10px;
+            font-size: 16px;
+            margin-left: 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #wendyImage {
+            width: 200px;
+            cursor: pointer;
+            transition: transform 0.1s;
+        }
+        #clickCounter {
+            font-size: 20px;
+            margin: 10px 0;
+        }
+        table {
+            margin: 10px auto;
+            border-collapse: collapse;
+            width: 30%; 
+            background-color: #fff;
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        th {
+            background-color: #007bff;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the Wendy!</h1>
+    <div class="container">
+        <div class="name-container">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="selectButton">Select</button>
+        </div>
+        <img id="wendyImage" src="Screenshot_20240901_190056_Instagram.jpg" alt="Wendy">
+        <p id="clickCounter">Click count: 0</p>
+        <table id="leaderboardTable">
+            <tr>
+                <th>Name</th>
+                <th>Clicks</th>
+            </tr>
+        </table>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
